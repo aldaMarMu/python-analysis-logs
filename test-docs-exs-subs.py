@@ -9,28 +9,28 @@ db= client['back_bitbloq_db']
 # Contar documentos, ejercicios y submissions de cada tipo
 docs=db.documentmodels.count_documents({});
 docs_rob=db.documentmodels.count_documents({'type': 'robotica'},)
-docs_3d=db.documentmodels.count_documents({'type': '3d'},)
+docs_3D=db.documentmodels.count_documents({'type': '3D'},)
 docs_jr=db.documentmodels.count_documents({'type': 'robotica_jr'},)
-docs_resto=docs-(docs_rob+docs_3d+docs_jr)
-documentos=[docs_rob, docs_3d, docs_jr, docs_resto]
+docs_resto=docs-(docs_rob+docs_3D+docs_jr)
+documentos=[docs_rob, docs_3D, docs_jr, docs_resto]
 
 exs=db.exercisemodels.count_documents({})
 exs_rob=db.exercisemodels.count_documents({'type': 'robotica'},)
-exs_3d=db.exercisemodels.count_documents({'type': '3d'},)
+exs_3D=db.exercisemodels.count_documents({'type': '3D'},)
 exs_jr=db.exercisemodels.count_documents({'type': 'robotica_jr'},)
-exs_resto=exs-(exs_rob+exs_3d+exs_jr)
-ejercicios=[exs_rob, exs_3d, exs_jr, exs_resto]
+exs_resto=exs-(exs_rob+exs_3D+exs_jr)
+ejercicios=[exs_rob, exs_3D, exs_jr, exs_resto]
 
 subs=db.submissionmodels.count_documents({})
 subs_rob=db.submissionmodels.count_documents({'type': 'robotica'},)
-subs_3d=db.submissionmodels.count_documents({'type': '3d'},)
+subs_3D=db.submissionmodels.count_documents({'type': '3D'},)
 subs_jr=db.submissionmodels.count_documents({'type': 'robotica_jr'},)
-subs_resto=subs-(subs_rob+subs_3d+subs_jr)
-submissions=[subs_rob, subs_3d, subs_jr, subs_resto]
+subs_resto=subs-(subs_rob+subs_3D+subs_jr)
+submissions=[subs_rob, subs_3D, subs_jr, subs_resto]
 
 # crear la matriz con todos os datos
 datos=np.array([documentos, ejercicios, submissions])
-columnas=('robotica', '3d', 'JR', 'otros')
+columnas=('robotica', '3D', 'JR', 'otros')
 filas=('documentos', 'ejercicios', 'submissions')
 print(datos)
 
